@@ -11,7 +11,7 @@ styl = f"""
     <style>
         img{{
             height : 240px;
-            margin : 8px;
+            margin : 8px;   
             border-radius: 5%;
         }}
         
@@ -23,6 +23,7 @@ st.markdown(styl, unsafe_allow_html=True)
 l = []
 l_dict = {}
 watched_movies = []
+sim_score = {}
 recmovi = set({})
 # with pickle
 # with open("users.csv", "r+") as f:
@@ -74,7 +75,8 @@ def recommend(movie):
     distances = similarity[movie_index]
     movie_list = sorted(list(enumerate(distances)),
                         reverse=True, key=lambda x: x[1])
-    movie_list = movie_list[1:8 + 1]
+    movie_list = movie_list[1:7 + 1]
+    # st.write(movie_list)
     # st.write(movie_list)
     list1 = []
     for i in movie_list:
