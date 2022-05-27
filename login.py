@@ -143,7 +143,7 @@ def main():
                 # finally:
                 #     pickle.dump(poster_path_dict, open('posterpaths.pkl', 'wb'))
 
-                st.title('Quick Recommendations')
+                st.title('Quick Movie Recommendations')
                 option = st.selectbox('Enter Movie Name', (movies['title']))
                 result = st.button("Recommend")
 
