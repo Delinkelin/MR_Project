@@ -109,7 +109,7 @@ def main():
         username = st.session_state['key']
         with placeholder1.container():
             # P = "E:\\College\\New folder (2)\\MR_Project\\"
-            P = "/home/dhruvil/MR_Project_New/"
+            P = ""
             username = st.session_state['key']
             st.success("Logged In as {}".format(username))
             st.title('Movie recommendation system')
