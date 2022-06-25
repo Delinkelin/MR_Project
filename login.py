@@ -1,5 +1,5 @@
 from secrets import choice
-from turtle import shape
+
 from matplotlib.pyplot import axis, title
 from numpy import place
 import streamlit as st
