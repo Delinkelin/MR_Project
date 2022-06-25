@@ -1,7 +1,7 @@
-from secrets import choice
+# from secrets import choice
 
-from matplotlib.pyplot import axis, title
-from numpy import place
+# from matplotlib.pyplot import axis, title
+# from numpy import place
 import streamlit as st
 import streamlit_authenticator as stauth
 import pandas as pd
