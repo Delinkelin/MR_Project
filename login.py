@@ -105,6 +105,8 @@ def main():
 
                 def fetch_posterpath_from_pkl(recomended_movies_set):
                     dict = {}
+                    postrpathslnk='https://drive.google.com/uc?export=download&id=1nYHM31aW86qgg0DEkKp84D4NmXHzSUls'
+                    getpklfromlink(postrpathslnk, 'posterpaths.pkl')
                     poster_dict_from_pkl = pickle.load(open('posterpaths.pkl', 'rb'))
                     for i in recomended_movies_set:
                         poster = poster_dict_from_pkl[i]
@@ -145,8 +147,12 @@ def main():
 
 
                 # movi.append()
+                movlnk = 'https://drive.google.com/uc?export=download&id=1r1DfxNSe1q6ujA_YMvFzfc8Afg6obILM'
+                getpklfromlink(movlnk, 'movies.pkl')
                 movies = pickle.load(open('movies.pkl', 'rb'))
                 movies = pd.DataFrame(movies)
+                simlnk = 'https://drive.google.com/uc?export=download&id=1ihOGlO0RkyyGn744CP_paUEGZFNUOwXc'
+                getpklfromlink(simlnk, 'similarity.pkl')
                 similarity = pickle.load(open('similarity.pkl', 'rb'))
                 similarity = pd.DataFrame(similarity)
 
@@ -319,8 +325,15 @@ def main():
             try:
 
                 # recmovi = pickle.load(open('pick.pkl', 'rb'))
-                watched_movies = pickle.load(
+                try:
+                    watched_movies = pickle.load(
                     open(P + 'userbased/watched1.pkl', 'rb'))
+                # dict2csv("ratings_modified.csv", watched_movies)
+                except Exception:
+
+                    watchedlnk = 'https://drive.google.com/uc?export=download&id=1X7oVacNJmJDtSqhl6tZMcCEC8fVfSTxZ'
+                    getpklfromlink(watchedlnk, 'watched1.pkl')
+                    watched_movies = pickle.load(open('watched1.pkl', 'rb'))
                 dict2csv("ratings_modified.csv", watched_movies)
                 # watched_movies = csv2dict('userbased/ratings.csv')
             except Exception as e:
@@ -361,6 +374,8 @@ def main():
                     # pickle.dump(recmovi, open('pick.pkl', 'wb'))
                 pickle.dump(watched_movies, open(
                     P + 'userbased/watched1.pkl', 'wb'))
+            corelnk = 'https://drive.google.com/uc?export=download&id=1OOOUz_x-HkWEnk3Bl5A1sjizBqwFOaHs'
+            getpklfromlink(corelnk, 'corrMatrix.pkl')
             core_matrix = pickle.load(
                 open(P + 'userbased/corrMatrix.pkl', 'rb'))
 
