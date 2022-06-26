@@ -35,6 +35,9 @@ for username, passwd in zip(user_df["usernames"], user_df["Password"]):
 user_id_map = {}
 for username, user_id in zip(user_df["usernames"], user_df["User-id"]):
     user_id_map[username] = str(user_id)
+response = requests.get('https://drive.google.com/uc?export=download&id=1JlDLWQjIoLdP1YFhs8uxihJjwTTgFNfJ')
+with open("tmdb_mov_map.pkl", 'wb') as f:
+    f.write(response.content)
 tmdb_mov_map = pickle.load(open('tmdb_mov_map.pkl', 'rb'))
 title_mov_map = pickle.load(open('title_mov_map.pkl', 'rb'))
 
