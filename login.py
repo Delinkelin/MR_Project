@@ -20,6 +20,10 @@ styl = f"""
     </style>
     """
 st.markdown(styl, unsafe_allow_html=True)
+def getpklfromlink(link, name):
+  response = requests.get(link)
+  with open(name, 'wb') as f:
+    f.write(response.content)
 placeholder = st.empty()
 try:
     user_df = pd.read_csv('Users.csv')
@@ -39,6 +43,10 @@ response = requests.get('https://drive.google.com/uc?export=download&id=1JlDLWQj
 with open("tmdb_mov_map.pkl", 'wb') as f:
     f.write(response.content)
 tmdb_mov_map = pickle.load(open('tmdb_mov_map.pkl', 'rb'))
+titlemovmap = 'https://drive.google.com/uc?export=download&id=17scsq_9rFf5yqY6Vtt5B3p2DAWy3TGM7'
+response = requests.get(titlemovmap)
+with open("title_mov_map.pkl", 'wb') as f:
+    f.write(response.content)
 title_mov_map = pickle.load(open('title_mov_map.pkl', 'rb'))
 
 
@@ -64,6 +72,8 @@ def main():
                 try:
 
                     # recmovi = pickle.load(open('pick.pkl', 'rb'))
+                    watchedlnk='https://drive.google.com/uc?export=download&id=1OJ2nzBzeytLd782aI-idb0z1KgxLE5ns'
+                    getpklfromlink(watchedlnk, 'watched.pkl')
                     watched_movies = pickle.load(open('watched.pkl', 'rb'))
                 except Exception:
                     print("hello")
@@ -71,6 +81,8 @@ def main():
 
                 def fetch_posterpath(recomended_movies_set):
                     for i in recomended_movies_set:
+                        postrpathslnk='https://drive.google.com/uc?export=download&id=1nYHM31aW86qgg0DEkKp84D4NmXHzSUls'
+                        getpklfromlink(postrpathslnk, 'posterpaths.pkl')
                         dict = pickle.load(open('posterpaths.pkl', 'rb'))
                         if i not in dict:
                             st.write("Movie name is here", i)
