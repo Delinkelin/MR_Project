@@ -151,7 +151,7 @@ def main():
                 getpklfromlink(movlnk, 'movies.pkl')
                 movies = pickle.load(open('movies.pkl', 'rb'))
                 movies = pd.DataFrame(movies)
-                simlnk = 'https://drive.google.com/uc?export=download&id=1ihOGlO0RkyyGn744CP_paUEGZFNUOwXc'
+                simlnk = 'https://drive.google.com/uc?export=download&id=150Rort82XfDuDpnE90fH3dH0Ew2bmYgJ'
                 getpklfromlink(simlnk, 'similarity.pkl')
                 similarity = pickle.load(open('similarity.pkl', 'rb'))
                 similarity = pd.DataFrame(similarity)
